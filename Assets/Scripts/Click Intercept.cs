@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class ClickIntercept : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+	public int scoreValue = 10;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private void OnMouseDown()
+	{
+		Debug.Log("CLICKED");
+
+		GameManager.Instance.AddScore(scoreValue);
+
+		DroneSpawner.Instance.SpawnAfterDelay();
+
+		Destroy(gameObject);
+	}
 }
